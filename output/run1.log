@@ -1,0 +1,113 @@
+26/10/20 17:57:00 WARN Utils: Your hostname, DESKTOP-95EN7DA resolves to a loopback address: 127.0.1.1; using 10.255.255.254 instead (on interface lo)
+26/10/20 17:57:00 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+26/10/20 17:57:02 INFO SparkContext: Running Spark version 3.5.3
+26/10/20 17:57:02 INFO SparkContext: OS info Linux, 6.6.87.2-microsoft-standard-WSL2, amd64
+26/10/20 17:57:02 INFO SparkContext: Java version 1.8.0_504
+26/10/20 17:57:02 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/10/20 17:57:02 INFO ResourceUtils: ==============================================================
+26/10/20 17:57:02 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/10/20 17:57:02 INFO ResourceUtils: ==============================================================
+26/10/20 17:57:02 INFO SparkContext: Submitted application: UPI_Fraud_Analysis
+26/10/20 17:57:02 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/10/20 17:57:02 INFO ResourceProfile: Limiting resource is cpu
+26/10/20 17:57:02 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/10/20 17:57:03 INFO SecurityManager: Changing view acls to: amar
+26/10/20 17:57:03 INFO SecurityManager: Changing modify acls to: amar
+26/10/20 17:57:03 INFO SecurityManager: Changing view acls groups to: 
+26/10/20 17:57:03 INFO SecurityManager: Changing modify acls groups to: 
+26/10/20 17:57:03 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: amar; groups with view permissions: EMPTY; users with modify permissions: amar; groups with modify permissions: EMPTY
+26/10/20 17:57:03 INFO Utils: Successfully started service 'sparkDriver' on port 35421.
+26/10/20 17:57:03 INFO SparkEnv: Registering MapOutputTracker
+26/10/20 17:57:03 INFO SparkEnv: Registering BlockManagerMaster
+26/10/20 17:57:04 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/10/20 17:57:04 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/10/20 17:57:04 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/10/20 17:57:04 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-d6f1b25c-27e2-435a-97ef-a959c35d8858
+26/10/20 17:57:04 INFO MemoryStore: MemoryStore started with capacity 912.3 MiB
+26/10/20 17:57:04 INFO SparkEnv: Registering OutputCommitCoordinator
+26/10/20 17:57:04 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/10/20 17:57:04 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/10/20 17:57:04 INFO Executor: Starting executor ID driver on host 10.255.255.254
+26/10/20 17:57:04 INFO Executor: OS info Linux, 6.6.87.2-microsoft-standard-WSL2, amd64
+26/10/20 17:57:04 INFO Executor: Java version 1.8.0_504
+26/10/20 17:57:04 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/10/20 17:57:04 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@6f1be9a for default.
+26/10/20 17:57:04 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 37955.
+26/10/20 17:57:04 INFO NettyBlockTransferService: Server created on 10.255.255.254:37955
+26/10/20 17:57:04 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/10/20 17:57:05 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 10.255.255.254, 37955, None)
+26/10/20 17:57:05 INFO BlockManagerMasterEndpoint: Registering block manager 10.255.255.254:37955 with 912.3 MiB RAM, BlockManagerId(driver, 10.255.255.254, 37955, None)
+26/10/20 17:57:05 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 10.255.255.254, 37955, None)
+26/10/20 17:57:05 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 10.255.255.254, 37955, None)
+Parquet written successfully.
+Clean rows count: 6362620
+
+=== Analysis A: Fraud rate by transaction type ===
++--------+-------+-----------+---------+
+|    type|  total|fraud_count|fraud_pct|
++--------+-------+-----------+---------+
+|TRANSFER| 532909|       4097|   0.7688|
+|CASH_OUT|2237500|       4116|    0.184|
+| PAYMENT|2151495|          0|      0.0|
+|   DEBIT|  41432|          0|      0.0|
+| CASH_IN|1399284|          0|      0.0|
++--------+-------+-----------+---------+
+
+
+=== Analysis B: Fraud by hour of day ===
++-----------+------+-----------+---------+
+|hour_of_day| total|fraud_count|fraud_pct|
++-----------+------+-----------+---------+
+|          0| 71587|        300|   0.4191|
+|          1| 27111|        358|   1.3205|
+|          2|  9018|        372|   4.1251|
+|          3|  2007|        326|  16.2431|
+|          4|  1241|        274|   22.079|
+|          5|  1641|        366|  22.3035|
+|          6|  3420|        358|  10.4678|
+|          7|  8988|        328|   3.6493|
+|          8| 26915|        368|   1.3673|
+|          9|283518|        341|   0.1203|
+|         10|425729|        375|   0.0881|
+|         11|445992|        324|   0.0726|
+|         12|483418|        339|   0.0701|
+|         13|468474|        346|   0.0739|
+|         14|439653|        353|   0.0803|
+|         15|416686|        341|   0.0818|
+|         16|441612|        345|   0.0781|
+|         17|439941|        353|   0.0802|
+|         18|580509|        343|   0.0591|
+|         19|647814|        342|   0.0528|
+|         20|553728|        340|   0.0614|
+|         21|247806|        347|     0.14|
+|         22|194555|        351|   0.1804|
+|         23|141257|        323|   0.2287|
++-----------+------+-----------+---------+
+
+
+=== Analysis C: Amount statistics: fraud vs genuine ===
++-------+-------+----------+-------------+
+|isFraud|      n|avg_amount|   max_amount|
++-------+-------+----------+-------------+
+|      1|   8213| 1467967.3|        1.0E7|
+|      0|6354407| 178197.04|9.244551664E7|
++-------+-------+----------+-------------+
+
+
+=== Analysis D: Top 10 sender accounts by fraud count ===
++-----------+----------+------------------+
+|nameOrig   |fraud_txns|total_fraud_amount|
++-----------+----------+------------------+
+|C1074244611|1         |160351.22         |
+|C724193820 |1         |1.0E7             |
+|C1014836767|1         |2934820.94        |
+|C2016728314|1         |8327328.27        |
+|C1455660898|1         |762135.72         |
+|C840664227 |1         |49966.72          |
+|C660401037 |1         |1803411.53        |
+|C281744778 |1         |2598276.05        |
+|C1185526711|1         |7513581.46        |
+|C1454479269|1         |978261.98         |
++-----------+----------+------------------+
+only showing top 10 rows
+
